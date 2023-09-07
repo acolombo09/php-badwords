@@ -1,13 +1,8 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $inputwords = $_POST["inputwords"];
-  $censored = $_POST["censored"];
-  $result = str_replace($censored, "***", $inputwords);
-}
-// $inputwords = $_POST["inputwords"];
-// $censored = $_POST["censored"];
-// //daModificare,conCosa, stringa soggetto cioè quella sulla quale eseguire l'operazione richiesta
-// $result = str_replace($censored, "***", $inputwords);
+$inputwords = $_POST["inputwords"] ?? null;
+$censored = $_POST["censored"] ?? null;
+  //daModificare,conCosa, stringa soggetto cioè quella sulla quale eseguire l'operazione richiesta
+$result = str_replace($censored, '<span class="text-danger">***</span>', $inputwords);
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="container">
     <div class="row py-3">
       <div class="col-6 mx-auto">
-        <h1 class="text-center">
-          <?php echo $result ?>
-        </h1>
-        <a href="./index.php">Riprova</a>
+        <h2>Original Text</h2>
+        <p><?php echo $inputwords ?></p>
       </div>
+      <div class="col-6 mx-auto">
+        <h2>Censored Text</h2>
+        <p><?php echo $result ?></p>
+      </div>
+      <a href="./index.php">Riprova</a>
     </div>
   </div>
 </body>

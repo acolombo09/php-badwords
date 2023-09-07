@@ -26,13 +26,13 @@
         </div>
         <div class="col">
           <div class="w-50 mx-auto">
-            <form action="indexbackend.php" method="post">
+            <form action="indexbackend.php" method="POST">
               <div class="form my-3">
-                <label for="text" class="form-label">Write here</label>
-                <input type="text" class="form-control mt-2" id="inputwords" name="inputwords">
+                <label for="text" class="form-label">Write text here</label>
+                <textarea type="text" class="form-control mt-2" style="height: 150px" id="inputwords" name="inputwords"></textarea>
               </div>
               <div class="form my-3">
-                <label for="censor" class="form-label">Censored Content here</label>
+                <label for="censor" class="form-label">Write what you want to censor here</label>
                 <input type="text" class="form-control mt-2" id="censored" name="censored">
               </div>
               <button class="btn btn-success w-100 py-2" type="submit">Send</button>
